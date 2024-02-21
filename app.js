@@ -55,8 +55,21 @@ function stopWatch() {
 }
 
 // window.setInterval(stopWatch, 1000)
-startStopBtn.addEventListener('click', function() {
+// startStopBtn.addEventListener('click', function() {
 
+//     if(timerstatus === "stopped") {
+//         timerInterval = window.setInterval(stopWatch, 1000);
+//         document.getElementById('startStopBtn').innerHTML = '<i class="fa-solid fa-pause" id="pause"></i>';
+//         timerstatus = "started"; 
+//     } else {
+//         window.clearInterval(timerInterval);
+//         document.getElementById('startStopBtn').innerHTML = '<i class="fa-solid fa-play" id="play"></i>';
+//         timerstatus = "Stopped";
+//     }
+
+// });
+
+startStopBtn.addEventListener('click', function() {
     if(timerstatus === "stopped") {
         timerInterval = window.setInterval(stopWatch, 1000);
         document.getElementById('startStopBtn').innerHTML = '<i class="fa-solid fa-pause" id="pause"></i>';
@@ -64,7 +77,19 @@ startStopBtn.addEventListener('click', function() {
     } else {
         window.clearInterval(timerInterval);
         document.getElementById('startStopBtn').innerHTML = '<i class="fa-solid fa-play" id="play"></i>';
-        timerstatus = "Stopped";
+        timerstatus = "stopped"; // Change "Stopped" to "stopped"
     }
+});
+
+
+
+resetBtn.addEventListener('click', function(){
+
+    window.clearInterval(timerInterval);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+
+    document.getElementById('timer').innerHTML = "00:00:00";
 
 });
